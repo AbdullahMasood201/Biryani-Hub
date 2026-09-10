@@ -45,11 +45,18 @@
   <meta name="twitter:image" content="https://iili.io/nFqLKCJ.png">
 
   <!-- Favicon using verified supplied logo -->
-  <link rel="icon" type="image/png" href="https://iili.io/nFtATv9.png">
+  <link rel="icon" type="image/webp" href="/images/logo.webp">
+  <link rel="alternate icon" type="image/png" href="https://iili.io/nFtATv9.png">
 
-  <!-- Google Font: Poppins (Async non-render-blocking with swap) -->
+  <!-- Resource Preconnect & DNS Prefetch for Fast Remote Asset Delivery -->
+  <link rel="preconnect" href="https://iili.io" crossorigin>
+  <link rel="dns-prefetch" href="https://iili.io">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload High-Priority Above-the-Fold Assets for Fast LCP -->
+  <link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/logo.webp" type="image/webp">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript>
@@ -497,11 +504,13 @@
       z-index: 1;
     }
 
-    /* Hero Background: https://freeimage.host/i/nFpRciu (CDN direct: https://iili.io/nFpRciu.png) */
+    /* Hero Background: Optimized WebP with CDN fallback */
     .bh-hero-bg-anim {
       position: absolute;
       inset: -35px;
-      background-image: url('https://iili.io/nFpRciu.png');
+      background-image: url('/images/hero-bg.webp');
+      background-image: -webkit-image-set(url('/images/hero-bg.webp') 1x, url('https://iili.io/nFpRciu.png') 1x);
+      background-image: image-set(url('/images/hero-bg.webp') type('image/webp'), url('https://iili.io/nFpRciu.png') type('image/png'));
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -2092,7 +2101,7 @@
     <div class="bh-container">
       <div class="bh-header-inner">
         <a href="#home" class="bh-logo-link" id="bh-brand-link" aria-label="Biryani Hub Home">
-          <img src="https://iili.io/nFtATv9.png" onerror="this.src='/logo.png'" alt="Biryani Hub" class="bh-logo-img" width="160" height="56" decoding="async">
+          <img src="/images/logo.webp" onerror="this.onerror=null;this.src='https://iili.io/nFtATv9.png'" alt="Biryani Hub" class="bh-logo-img" width="160" height="56" decoding="async" fetchpriority="high">
         </a>
 
         <!-- Desktop Nav -->
@@ -2318,7 +2327,7 @@
 
             <div>
               <div class="bh-hero-img-card">
-                <img src="https://iili.io/nFqLKCJ.png" alt="Biryani Hub authentic Pakistani Biryani dish" class="bh-hero-img" width="480" height="380" loading="lazy" decoding="async">
+                <img src="/images/hero-food.webp" onerror="this.onerror=null;this.src='https://iili.io/nFqLKCJ.png'" alt="Biryani Hub authentic Pakistani Biryani dish" class="bh-hero-img" width="480" height="380" loading="lazy" decoding="async">
                 <div class="bh-hero-caption">
                   <div class="bh-hero-caption-title">Biryani Hub Kitchen</div>
                   <div class="bh-hero-caption-sub">Phase 4 Civic Center, Bahria Town, Rawalpindi</div>
@@ -2582,7 +2591,7 @@
       <div class="bh-footer-grid">
         <div>
           <div class="bh-footer-logo-wrap">
-            <img src="https://iili.io/nFtATv9.png" onerror="this.src='/logo.png'" alt="Biryani Hub" class="bh-footer-logo-img" width="220" height="76" loading="lazy" decoding="async">
+            <img src="/images/logo.webp" onerror="this.onerror=null;this.src='https://iili.io/nFtATv9.png'" alt="Biryani Hub" class="bh-footer-logo-img" width="220" height="76" loading="lazy" decoding="async">
           </div>
           <p class="bh-footer-desc">Serving authentic Pakistani chicken biryani, fragrant basmati rice, and fresh traditional sides in Phase 4 Civic Center, Bahria Town Rawalpindi.</p>
           <div style="display: flex; align-items: center; gap: 8px;">
@@ -2656,20 +2665,31 @@
       deliveryFee: 150
     };
 
-    // Centralized Assets Configuration
+    // Centralized Assets Configuration (Optimized WebP with instant local loading and CDN fallbacks)
     const SITE_ASSETS = {
-      logo: "https://iili.io/nFtATv9.png",
-      heroBg: "https://iili.io/nFmRT2R.png",
-      heroFood: "https://iili.io/nFqLKCJ.png",
-      biryaniReal: "https://iili.io/nFqLKCJ.png",
-      familyDeal: "https://iili.io/nFEzZx4.png",
-      bigDeal: "https://iili.io/nFEMzYJ.png",
-      biryaniDouble: "https://iili.io/nFlPDnn.png",
-      biryaniSingle: "https://iili.io/nFlEB5B.png",
-      biryaniRiceSada: "https://iili.io/nFBY2CN.png",
-      extraChickenPiece: "https://iili.io/nF1C80u.png",
-      zeeraRaita: "https://iili.io/nFYbmKu.png",
-      freshSalad: "https://iili.io/nFcqsSV.png"
+      logo: "/images/logo.webp",
+      logoFallback: "https://iili.io/nFtATv9.png",
+      heroBg: "/images/hero-bg.webp",
+      heroBgFallback: "https://iili.io/nFpRciu.png",
+      heroFood: "/images/hero-food.webp",
+      heroFoodFallback: "https://iili.io/nFqLKCJ.png",
+      biryaniReal: "/images/hero-food.webp",
+      familyDeal: "/images/family-deal.webp",
+      familyDealFallback: "https://iili.io/nFEzZx4.png",
+      bigDeal: "/images/big-deal.webp",
+      bigDealFallback: "https://iili.io/nFEMzYJ.png",
+      biryaniDouble: "/images/biryani-double.webp",
+      biryaniDoubleFallback: "https://iili.io/nFlPDnn.png",
+      biryaniSingle: "/images/biryani-single.webp",
+      biryaniSingleFallback: "https://iili.io/nFlEB5B.png",
+      biryaniRiceSada: "/images/biryani-sada.webp",
+      biryaniRiceSadaFallback: "https://iili.io/nFBY2CN.png",
+      extraChickenPiece: "/images/extra-chicken.webp",
+      extraChickenPieceFallback: "https://iili.io/nF1C80u.png",
+      zeeraRaita: "/images/zeera-raita.webp",
+      zeeraRaitaFallback: "https://iili.io/nFYbmKu.png",
+      freshSalad: "/images/fresh-salad.webp",
+      freshSaladFallback: "https://iili.io/nFcqsSV.png"
     };
 
     // Products Data (Prices easily editable here)
@@ -2681,6 +2701,7 @@
         price: 2650,
         description: "5 REG BIRYANI, 5 RAITA\n5 SALAD, 1.5 LITER DRINK",
         image: SITE_ASSETS.familyDeal,
+        fallback: SITE_ASSETS.familyDealFallback,
         isFeatured: true
       },
       {
@@ -2690,6 +2711,7 @@
         price: 5300,
         description: "10X REG BIRYANI, 1 PLAIN ZARDA\n2X 1.5 LITER COLD DRINK",
         image: SITE_ASSETS.bigDeal,
+        fallback: SITE_ASSETS.bigDealFallback,
         isFeatured: true
       },
       {
@@ -2699,6 +2721,7 @@
         price: 480,
         description: "Aromatic basmati rice cooked on dum with double tender seasoned chicken and whole spices.",
         image: SITE_ASSETS.biryaniDouble,
+        fallback: SITE_ASSETS.biryaniDoubleFallback,
         isFeatured: true
       },
       {
@@ -2708,6 +2731,7 @@
         price: 320,
         description: "Aromatic basmati rice cooked on dum with single tender seasoned chicken piece and whole spices.",
         image: SITE_ASSETS.biryaniSingle,
+        fallback: SITE_ASSETS.biryaniSingleFallback,
         isFeatured: true
       },
       {
@@ -2717,6 +2741,7 @@
         price: 220,
         description: "Fragrant basmati biryani rice cooked in aromatic chicken stock and traditional whole spices.",
         image: SITE_ASSETS.biryaniRiceSada,
+        fallback: SITE_ASSETS.biryaniRiceSadaFallback,
         isFeatured: true
       },
       {
@@ -2726,6 +2751,7 @@
         price: 180,
         description: "Juicy, spiced additional chicken piece prepared fresh to add to your biryani plate.",
         image: SITE_ASSETS.extraChickenPiece,
+        fallback: SITE_ASSETS.extraChickenPieceFallback,
         isFeatured: false
       },
       {
@@ -2735,6 +2761,7 @@
         price: 60,
         description: "Crisp sliced cucumbers, onions, and fresh seasonal salad vegetables with a touch of lemon.",
         image: SITE_ASSETS.freshSalad,
+        fallback: SITE_ASSETS.freshSaladFallback,
         isFeatured: true
       },
       {
@@ -2744,6 +2771,7 @@
         price: 60,
         description: "Chilled fresh yogurt infused with roasted cumin seeds and fine herbs, perfect with spicy biryani.",
         image: SITE_ASSETS.zeeraRaita,
+        fallback: SITE_ASSETS.zeeraRaitaFallback,
         isFeatured: true
       }
     ];
@@ -3211,7 +3239,7 @@
       return `
         <div class="bh-product-card" id="product-${p.id}">
           <div class="bh-product-img-wrap">
-            <img src="${p.image}" alt="${p.name} - Biryani Hub Bahria Town" class="bh-product-img" width="360" height="190" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <img src="${p.image}" onerror="this.onerror=null;this.src='${p.fallback || ''}'" alt="${p.name} - Biryani Hub Bahria Town" class="bh-product-img" width="360" height="190" loading="lazy" decoding="async" referrerpolicy="no-referrer">
             <span class="bh-product-category-tag">${p.category}</span>
           </div>
           <div class="bh-product-body">
