@@ -1852,21 +1852,34 @@
       .bh-hero-dot {
         display: none;
       }
-      .bh-hero-actions {
+      .bh-hero-actions,
+      #bh-home-hero .bh-hero-actions {
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-        gap: 10px;
-      }
-      .bh-hero-actions .bh-btn {
-        width: 100%;
-        min-height: 48px;
-        font-size: 15px;
-        font-weight: 600;
-        border-radius: 10px;
+        flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        gap: 8px 10px;
+      }
+      .bh-hero-actions .bh-btn,
+      #bh-home-hero .bh-hero-actions .bh-btn {
+        width: auto;
+        min-height: 38px;
+        padding: 8px 18px;
+        font-size: 13.5px;
+        font-weight: 600;
+        border-radius: 8px;
+        justify-content: center;
+      }
+      #bh-home-contact-section .bh-btn,
+      .bh-home-contact-actions .bh-btn {
+        min-height: 38px;
+        padding: 8px 18px;
+        font-size: 13.5px;
+        font-weight: 600;
+        border-radius: 8px;
       }
       .bh-section {
         padding: 40px 0;
@@ -2099,13 +2112,23 @@
         padding: 4px 10px;
         font-size: 11.5px;
       }
-      .bh-hero-actions {
+      .bh-hero-actions,
+      #bh-home-hero .bh-hero-actions {
         gap: 8px;
       }
-      .bh-hero-actions .bh-btn {
-        min-height: 46px;
-        font-size: 14.5px;
-        border-radius: 8px;
+      .bh-hero-actions .bh-btn,
+      #bh-home-hero .bh-hero-actions .bh-btn {
+        min-height: 36px;
+        padding: 7px 14px;
+        font-size: 12.5px;
+        border-radius: 6px;
+      }
+      #bh-home-contact-section .bh-btn,
+      .bh-home-contact-actions .bh-btn {
+        min-height: 36px;
+        padding: 7px 14px;
+        font-size: 12.5px;
+        border-radius: 6px;
       }
       .bh-section {
         padding: 32px 0;
@@ -2227,6 +2250,14 @@
       }
       .bh-product-price {
         font-size: 17px;
+      }
+      .bh-hero-actions .bh-btn,
+      #bh-home-hero .bh-hero-actions .bh-btn,
+      #bh-home-contact-section .bh-btn,
+      .bh-home-contact-actions .bh-btn {
+        min-height: 34px;
+        padding: 6px 12px;
+        font-size: 12px;
       }
     }
 
@@ -2425,7 +2456,7 @@
             <div class="bh-contact-card" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px;">
               <h3 style="font-size: 20px; font-weight: 700; color: var(--bh-secondary);">Order Online Today</h3>
               <p style="color: var(--bh-text-muted); font-size: 14px;">Craving piping hot biryani? Browse our complete menu, add items to your online cart, and send your order straight to our kitchen via WhatsApp or phone.</p>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <div class="bh-home-contact-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
                 <a href="#menu" class="bh-btn bh-btn-primary">Browse Full Menu</a>
                 <a href="https://wa.me/923311117525?text=Hello%20Biryani%20Hub,%20I%20would%20like%20to%20order" target="_blank" rel="noopener noreferrer" class="bh-btn bh-btn-outline">Chat on WhatsApp</a>
               </div>
