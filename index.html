@@ -1,0 +1,3473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // Defensive filter against third-party browser extension injection errors (e.g. MetaMask/Web3 wallets in iframes)
+    (function() {
+      function isExtNoise(e) {
+        if (!e) return false;
+        var msg = (typeof e === 'string') ? e : (e.message || e.reason || (e.error && e.error.message) || (typeof e.toString === 'function' ? e.toString() : ''));
+        return /metamask|ethereum|web3|wallet|evm/i.test(msg);
+      }
+      window.addEventListener('error', function(ev) {
+        if (isExtNoise(ev.message) || isExtNoise(ev.error)) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(ev) {
+        if (isExtNoise(ev.reason)) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+    })();
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Biryani Hub | Offering Real Taste of Karachi | Bahria Town Rawalpindi</title>
+  <meta name="description" content="Offering Real Taste of Karachi. Authentic Pakistani restaurant and food ordering in Bahria Town Phase 4 Civic Center, Rawalpindi. Featuring chicken biryani, family deals, and fast delivery.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://biryanihub.pk/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Biryani Hub - Offering Real Taste of Karachi">
+  <meta property="og:description" content="Offering Real Taste of Karachi. Authentic Pakistani chicken biryani, rice specialties, deals, and quick delivery in Bahria Town Rawalpindi.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://biryanihub.pk/">
+  <meta property="og:image" content="https://iili.io/nFqLKCJ.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Biryani Hub - Bahria Town Rawalpindi">
+  <meta name="twitter:description" content="Pakistani Biryani Restaurant & Online Ordering in Bahria Town, Rawalpindi.">
+  <meta name="twitter:image" content="https://iili.io/nFqLKCJ.png">
+
+  <!-- Favicon using verified supplied logo -->
+  <link rel="icon" type="image/png" href="https://iili.io/nFtATv9.png">
+
+  <!-- Google Font: Poppins (Async non-render-blocking with swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  </noscript>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Biryani Hub",
+    "image": "https://iili.io/nFqLKCJ.png",
+    "logo": "https://iili.io/nFtATv9.png",
+    "telephone": "0512728881",
+    "url": "https://biryanihub.pk",
+    "servesCuisine": "Pakistani",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center",
+      "addressLocality": "Bahria Town, Rawalpindi",
+      "addressRegion": "Punjab",
+      "addressCountry": "PK"
+    },
+    "sameAs": [
+      "https://www.facebook.com/biryanihubofficial/"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bh-primary: #d97706;
+      --bh-primary-dark: #b45309;
+      --bh-primary-light: #fef3c7;
+      --bh-secondary: #1e293b;
+      --bh-accent: #15803d;
+      --bh-text: #1f2937;
+      --bh-text-muted: #4b5563;
+      --bh-bg: #ffffff;
+      --bh-bg-alt: #f9fafb;
+      --bh-bg-dark: #111827;
+      --bh-border: #e5e7eb;
+      --bh-radius: 12px;
+      --bh-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --bh-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --bh-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --bh-font: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--bh-font);
+      color: var(--bh-text);
+      background-color: var(--bh-bg);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      text-rendering: optimizeSpeed;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      font-size: 15px;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      content-visibility: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .bh-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .bh-section {
+      padding: 64px 0;
+    }
+
+    .bh-section-alt {
+      background-color: var(--bh-bg-alt);
+    }
+
+    .bh-section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px auto;
+    }
+
+    .bh-section-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .bh-section-desc {
+      color: var(--bh-text-muted);
+      font-size: 15px;
+    }
+
+    /* Buttons */
+    .bh-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease;
+      white-space: nowrap;
+      text-decoration: none;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .bh-btn:active {
+      transform: scale(0.97);
+    }
+
+    .bh-btn-primary {
+      background-color: var(--bh-primary);
+      color: #ffffff;
+    }
+
+    .bh-btn-primary:hover {
+      background-color: var(--bh-primary-dark);
+      color: #ffffff;
+    }
+
+    .bh-btn-secondary {
+      background-color: var(--bh-secondary);
+      color: #ffffff;
+    }
+
+    .bh-btn-secondary:hover {
+      background-color: #0f172a;
+      color: #ffffff;
+    }
+
+    .bh-btn-outline {
+      border-color: var(--bh-border);
+      background-color: #ffffff;
+      color: var(--bh-secondary);
+    }
+
+    .bh-btn-outline:hover {
+      border-color: var(--bh-primary);
+      color: var(--bh-primary);
+      background-color: var(--bh-primary-light);
+    }
+
+    .bh-btn-sm {
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+
+    .bh-btn-block {
+      width: 100%;
+    }
+
+    /* Header */
+    header#bh-header:nth-of-type(1),
+    header#bh-header,
+    .bh-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #202020;
+      border-bottom: 1px solid #2e2e2e;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .bh-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 20px;
+    }
+
+    .bh-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .bh-logo-img {
+      height: 56px;
+      width: auto;
+      max-width: 190px;
+      object-fit: contain;
+      border-radius: 4px;
+      background-color: transparent;
+      padding: 0;
+      display: block;
+    }
+
+    .bh-brand-info {
+      display: none;
+    }
+
+    .bh-brand-name {
+      display: none;
+    }
+
+    .bh-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(20px, 2.8vw, 36px);
+      flex: 1;
+    }
+
+    .bh-nav-link {
+      font-size: 15px;
+      font-weight: 500;
+      color: #e5e7eb;
+      position: relative;
+      padding: 6px 2px;
+      white-space: nowrap;
+    }
+
+    .bh-nav-link:hover, .bh-nav-link.active {
+      color: var(--bh-primary);
+    }
+
+    .bh-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--bh-primary);
+      border-radius: 2px;
+    }
+
+    .bh-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .bh-cart-btn,
+    #bh-open-cart-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border: 1px solid #DD7C0A;
+      border-radius: 8px;
+      background-color: #DD7C0A;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.08s ease;
+    }
+
+    .bh-cart-btn:hover,
+    #bh-open-cart-btn:hover {
+      background-color: #ffffff;
+      color: #DD7C0A;
+      border-color: #DD7C0A;
+    }
+
+    .bh-cart-btn:active,
+    #bh-open-cart-btn:active {
+      transform: scale(0.96);
+    }
+
+    .bh-cart-badge {
+      background-color: #ffffff;
+      color: #DD7C0A;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 2px 7px;
+      line-height: 1;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .bh-cart-btn:hover .bh-cart-badge,
+    #bh-open-cart-btn:hover .bh-cart-badge {
+      background-color: #DD7C0A;
+      color: #ffffff;
+    }
+
+    .bh-menu-toggle {
+      display: none;
+      background: #111827;
+      border: 1px solid #374151;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #ffffff;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      touch-action: manipulation;
+      transition: transform 0.08s ease, background-color 0.15s ease;
+    }
+
+    .bh-menu-toggle:active {
+      transform: scale(0.94);
+    }
+
+    .bh-mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 98;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .bh-mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .bh-mobile-drawer {
+      display: flex;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      background-color: #202020;
+      border-bottom: 1px solid #2e2e2e;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+      padding: 20px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 14px;
+      max-height: calc(100dvh - 76px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, visibility 0.2s;
+      will-change: transform, opacity;
+    }
+
+    .bh-mobile-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .bh-mobile-nav-link {
+      font-size: 16px;
+      font-weight: 600;
+      color: #f3f4f6;
+      padding: 12px 0;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 44px;
+    }
+
+    .bh-mobile-nav-link.active {
+      color: var(--bh-primary);
+    }
+
+    /* Hero */
+    .bh-hero {
+      position: relative;
+      overflow: hidden;
+      background-color: rgba(40, 40, 40, 0.8);
+      padding: 112px 0 104px 0;
+      border-bottom: 1px solid #383838;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #bh-home-hero {
+      background-color: rgba(40, 40, 40, 0.8);
+    }
+
+    .bh-hero-bg-wrapper {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Hero Background: https://freeimage.host/i/nFpRciu (CDN direct: https://iili.io/nFpRciu.png) */
+    .bh-hero-bg-anim {
+      position: absolute;
+      inset: -35px;
+      background-image: url('https://iili.io/nFpRciu.png');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      will-change: transform;
+      animation: bhHeroKenBurns 22s ease-in-out infinite alternate;
+      transform: translateZ(0);
+    }
+
+    @keyframes bhHeroKenBurns {
+      0% {
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+      50% {
+        transform: scale(1.08) translate3d(-10px, -8px, 0);
+      }
+      100% {
+        transform: scale(1.04) translate3d(10px, 10px, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bh-hero-bg-anim {
+        animation: none !important;
+      }
+    }
+
+    .bh-hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(40, 40, 40, 0.8);
+      pointer-events: none;
+    }
+
+    #bh-home-hero .bh-hero-bg-overlay {
+      background: rgba(40, 40, 40, 0.8);
+      pointer-events: none;
+    }
+
+    .bh-hero-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .bh-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .bh-home-hero-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 820px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .bh-hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    #bh-home-hero .bh-hero-content {
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 860px;
+      width: 100%;
+      gap: 24px;
+    }
+
+    .bh-hero-title {
+      font-size: 44px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    #bh-home-hero .bh-hero-title {
+      text-align: center;
+      font-size: clamp(44px, 7vw, 76px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      color: #ffffff;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.9);
+      margin: 0;
+    }
+
+    .bh-hero-subtitle {
+      font-size: 17px;
+      color: #e2e8f0;
+      line-height: 1.6;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #bh-home-hero .bh-hero-subtitle {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .bh-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #f1f5f9;
+      letter-spacing: 0.3px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+    }
+
+    #bh-home-hero .bh-hero-badges {
+      justify-content: center;
+    }
+
+    .bh-hero-dot {
+      color: var(--bh-primary);
+      font-size: 18px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    #bh-home-hero .bh-hero-dot {
+      color: var(--bh-primary);
+      font-size: 18px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    .bh-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    #bh-home-hero .bh-hero-actions {
+      justify-content: center;
+    }
+
+    #bh-home-hero .bh-hero-actions .bh-btn {
+      min-height: 48px;
+      padding: 12px 30px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+
+    #bh-home-hero .bh-hero-actions .bh-btn-primary {
+      background-color: var(--bh-primary);
+      color: #ffffff;
+      border: 1px solid var(--bh-primary);
+      font-weight: 700;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    #bh-home-hero .bh-hero-actions .bh-btn-primary:hover {
+      background-color: var(--bh-primary-dark);
+      border-color: var(--bh-primary-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+    }
+
+    .bh-hero-actions .bh-btn-outline {
+      border-color: rgba(255, 255, 255, 0.45);
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .bh-hero-actions .bh-btn-outline:hover {
+      border-color: #ffffff;
+      background-color: #ffffff;
+      color: #0f172a;
+    }
+
+    .bh-hero-media {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bh-hero-img-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      border: 3px solid rgba(255, 255, 255, 0.22);
+      background-color: #1a202c;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .bh-hero-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .bh-hero-img:hover {
+      transform: scale(1.02);
+    }
+
+    .bh-hero-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+      padding: 24px 20px 14px 20px;
+      color: #ffffff;
+    }
+
+    .bh-hero-caption-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .bh-hero-caption-sub {
+      font-size: 13px;
+      color: #fed7aa;
+    }
+
+    /* Menu & Products */
+    .bh-category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .bh-tab-btn {
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--bh-border);
+      background-color: #ffffff;
+      color: var(--bh-secondary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+    }
+
+    .bh-tab-btn:active {
+      transform: scale(0.96);
+    }
+
+    .bh-tab-btn.active, .bh-tab-btn:hover {
+      background-color: var(--bh-secondary);
+      color: #ffffff;
+      border-color: var(--bh-secondary);
+    }
+
+    .bh-product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .bh-product-card {
+      background-color: #ffffff;
+      border: 1px solid var(--bh-border);
+      border-radius: var(--bh-radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+      contain: paint layout;
+    }
+
+    .bh-product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--bh-shadow);
+    }
+
+    .bh-product-img-wrap {
+      position: relative;
+      height: 190px;
+      aspect-ratio: 16 / 10;
+      background-color: #f1f5f9;
+      overflow: hidden;
+      contain: paint;
+    }
+
+    .bh-product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      content-visibility: auto;
+    }
+
+    .bh-product-category-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(17, 24, 39, 0.85);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .bh-product-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .bh-product-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      margin-bottom: 6px;
+    }
+
+    .bh-product-desc {
+      font-size: 13px;
+      color: var(--bh-text-muted);
+      margin-bottom: 16px;
+      flex-grow: 1;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .bh-product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .bh-product-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--bh-primary-dark);
+    }
+
+    /* Features */
+    .bh-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .bh-feature-card {
+      background-color: #ffffff;
+      border: 1px solid var(--bh-border);
+      border-radius: var(--bh-radius);
+      padding: 24px;
+      text-align: left;
+    }
+
+    .bh-feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background-color: var(--bh-primary-light);
+      color: var(--bh-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .bh-feature-svg {
+      width: 28px;
+      height: 28px;
+      color: var(--bh-primary);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .bh-feature-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      margin-bottom: 8px;
+    }
+
+    .bh-feature-text {
+      font-size: 14px;
+      color: var(--bh-text-muted);
+    }
+
+    /* FAQ */
+    .bh-faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bh-faq-item {
+      border: 1px solid var(--bh-border);
+      border-radius: 8px;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .bh-faq-btn {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--bh-secondary);
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .bh-faq-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .bh-faq-item.open .bh-faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .bh-faq-content {
+      display: none;
+      padding: 0 20px 18px 20px;
+      font-size: 14px;
+      color: var(--bh-text-muted);
+      border-top: 1px solid #f8fafc;
+      line-height: 1.6;
+    }
+
+    .bh-faq-item.open .bh-faq-content {
+      display: block;
+    }
+
+    /* Contact */
+    .bh-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .bh-contact-card {
+      background-color: #ffffff;
+      border: 1px solid var(--bh-border);
+      border-radius: var(--bh-radius);
+      padding: 32px;
+    }
+
+    .bh-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .bh-contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .bh-contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: var(--bh-primary-light);
+      color: var(--bh-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .bh-contact-svg {
+      width: 22px;
+      height: 22px;
+      color: var(--bh-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+      display: block;
+    }
+
+    .bh-contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--bh-text-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .bh-contact-val {
+      font-size: 15px;
+      color: var(--bh-secondary);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Cart Drawer */
+    .bh-cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    .bh-cart-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .bh-cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 450px;
+      background-color: #ffffff;
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      contain: layout paint;
+    }
+
+    .bh-cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .bh-cart-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--bh-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bh-cart-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bh-close-btn {
+      background: none;
+      border: none;
+      color: var(--bh-text-muted);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      display: flex;
+    }
+
+    .bh-close-btn:hover {
+      color: var(--bh-secondary);
+      background-color: #f1f5f9;
+    }
+
+    .bh-cart-items-wrap {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .bh-cart-empty {
+      text-align: center;
+      padding: 40px 10px;
+      color: var(--bh-text-muted);
+    }
+
+    .bh-cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .bh-cart-item-info {
+      flex: 1;
+    }
+
+    .bh-cart-item-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--bh-secondary);
+      margin-bottom: 2px;
+    }
+
+    .bh-cart-item-price {
+      font-size: 13px;
+      color: var(--bh-primary-dark);
+      font-weight: 600;
+    }
+
+    .bh-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--bh-border);
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .bh-qty-btn {
+      background: none;
+      border: none;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--bh-secondary);
+      border-radius: 4px;
+    }
+
+    .bh-qty-btn:hover {
+      background-color: #f1f5f9;
+    }
+
+    .bh-qty-val {
+      font-size: 13px;
+      font-weight: 600;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .bh-remove-btn {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      display: flex;
+    }
+
+    .bh-remove-btn:hover {
+      color: #dc2626;
+      background-color: #fee2e2;
+    }
+
+    .bh-cart-checkout-section {
+      border-top: 1px solid var(--bh-border);
+      padding: 20px;
+      background-color: var(--bh-bg-alt);
+    }
+
+    .bh-order-type-switch {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .bh-order-type-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid var(--bh-border);
+      background-color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .bh-order-type-btn.active {
+      background-color: var(--bh-secondary);
+      color: #ffffff;
+      border-color: var(--bh-secondary);
+    }
+
+    .bh-form-group {
+      margin-bottom: 10px;
+    }
+
+    .bh-input-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--bh-secondary);
+      margin-bottom: 4px;
+    }
+
+    .bh-input, .bh-textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--bh-border);
+      border-radius: 6px;
+      font-size: 13px;
+      background-color: #ffffff;
+      outline: none;
+    }
+
+    .bh-input:focus, .bh-textarea:focus {
+      border-color: var(--bh-primary);
+    }
+
+    .bh-calc-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--bh-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .bh-calc-row.total {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      border-top: 1px dashed var(--bh-border);
+      padding-top: 10px;
+      margin-top: 8px;
+    }
+
+    /* Floating WhatsApp */
+    .bh-floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 95;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .bh-floating-whatsapp:hover {
+      background-color: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      color: #ffffff;
+    }
+
+    .bh-wa-pulse {
+      position: relative;
+      display: flex;
+    }
+
+    .bh-wa-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    /* Modals */
+    .bh-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+    }
+
+    .bh-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .bh-modal-box {
+      background-color: #ffffff;
+      border-radius: var(--bh-radius);
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--bh-shadow-lg);
+      transform: scale(0.96) translateY(6px);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .bh-modal.open .bh-modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Order Modal Summary Styling (Focus Mode & Element Design) */
+    div#bh-order-modal:nth-of-type(3) > div:nth-of-type(1) > div#bh-order-modal-summary:nth-of-type(2),
+    #bh-order-modal-summary,
+    .bh-order-modal-summary {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      font-family: inherit;
+      color: #1f2937;
+      font-size: 14px;
+      line-height: 1.55;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      white-space: normal;
+    }
+
+    .bh-summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f3f4f6;
+      margin-bottom: 14px;
+    }
+
+    .bh-summary-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .bh-summary-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bh-summary-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .bh-summary-badge-type {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .bh-summary-badge-ref {
+      background-color: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .bh-summary-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+      margin: 14px 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bh-summary-section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #e5e7eb;
+    }
+
+    .bh-summary-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 16px;
+      background-color: #f9fafb;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      border: 1px solid #f3f4f6;
+    }
+
+    @media (max-width: 480px) {
+      .bh-summary-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bh-summary-info-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bh-summary-info-label {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .bh-summary-info-val {
+      font-weight: 600;
+      color: #1f2937;
+      word-break: break-word;
+    }
+
+    .bh-summary-items-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bh-summary-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 13.5px;
+      border-bottom: 1px dashed #f3f4f6;
+    }
+
+    .bh-summary-item-row:last-child {
+      border-bottom: none;
+    }
+
+    .bh-summary-item-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bh-summary-item-qty {
+      background-color: #fee2e2;
+      color: #b91c1c;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .bh-summary-item-name {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .bh-summary-item-price {
+      font-weight: 700;
+      color: #1f2937;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bh-summary-calc-box {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .bh-summary-calc-row {
+      display: flex;
+      justify-content: space-between;
+      color: #4b5563;
+    }
+
+    .bh-summary-calc-row.total-row {
+      margin-top: 6px;
+      padding: 10px 14px;
+      background-color: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      color: #9a3412;
+      font-size: 15px;
+      font-weight: 800;
+      align-items: center;
+    }
+
+    .bh-summary-calc-row.total-row span:last-child {
+      font-size: 17px;
+      color: #c2410c;
+    }
+
+    /* Toast */
+    .bh-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--bh-secondary);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: var(--bh-shadow-lg);
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .bh-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Blog */
+    .bh-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .bh-blog-card {
+      background-color: #ffffff;
+      border: 1px solid var(--bh-border);
+      border-radius: var(--bh-radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bh-blog-meta {
+      font-size: 12px;
+      color: var(--bh-text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bh-blog-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--bh-secondary);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .bh-blog-excerpt {
+      font-size: 14px;
+      color: var(--bh-text-muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer#bh-footer:nth-of-type(1),
+    footer#bh-footer,
+    .bh-footer {
+      background-color: #202020;
+      color: #9ca3af;
+      padding: 56px 0 24px 0;
+      margin-top: auto;
+      border-top: 1px solid #2e2e2e;
+    }
+
+    .bh-footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .bh-footer-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .bh-footer-logo-img {
+      height: 76px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      border-radius: 4px;
+      background-color: transparent;
+      padding: 0;
+      display: block;
+      margin-left: -14px;
+    }
+
+    .bh-footer-brand-title {
+      display: none;
+    }
+
+    .bh-footer-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: -15px;
+      margin-right: 0px;
+      margin-bottom: 16px;
+    }
+
+    .bh-footer-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .bh-footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .bh-footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .bh-footer-links a {
+      color: #9ca3af;
+      transition: color 0.18s ease;
+    }
+
+    .bh-footer-links a:hover,
+    .bh-footer a:hover,
+    .bh-footer-social-link:hover,
+    .bh-footer-phone-link:hover,
+    .bh-footer-bottom a:hover {
+      color: #b45309 !important;
+    }
+
+    .bh-footer-social-link {
+      color: #9ca3af;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.18s ease;
+      text-decoration: none;
+    }
+
+    .bh-footer-phone-link {
+      color: #ffffff;
+      transition: color 0.18s ease;
+      text-decoration: none;
+    }
+
+    .bh-footer-bottom {
+      border-top: 1px solid #2e2e2e;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .bh-footer-bottom a {
+      color: #9ca3af;
+      transition: color 0.18s ease;
+      text-decoration: none;
+    }
+
+    .bh-footer-bottom a:hover {
+      color: #b45309 !important;
+    }
+
+    /* Rendering & Hardware Acceleration Optimizations */
+    .bh-content-auto {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 380px;
+    }
+
+    /* Views */
+    .bh-view {
+      display: none;
+    }
+
+    .bh-view.active {
+      display: block;
+      animation: bhViewFade 0.16s ease-out forwards;
+    }
+
+    @keyframes bhViewFade {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .bh-container {
+        padding: 0 20px;
+      }
+      .bh-footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .bh-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .bh-hero-img-card {
+        max-width: 100%;
+      }
+      .bh-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .bh-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .bh-features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bh-header-inner {
+        height: 68px;
+      }
+      .bh-nav {
+        display: none;
+      }
+      .bh-menu-toggle {
+        display: flex;
+      }
+      .bh-mobile-drawer {
+        top: 68px;
+        max-height: calc(100dvh - 68px);
+        padding: 16px 20px 24px 20px;
+      }
+      .bh-hero {
+        padding: 64px 0 60px 0;
+        min-height: 420px;
+      }
+      .bh-hero-title {
+        font-size: 42px;
+      }
+      .bh-section {
+        padding: 38px 0;
+      }
+      .bh-features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .bh-blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .bh-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .bh-floating-whatsapp span {
+        display: none;
+      }
+      .bh-floating-whatsapp {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: max(18px, env(safe-area-inset-bottom, 18px));
+        right: max(18px, env(safe-area-inset-right, 18px));
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .bh-container {
+        padding: 0 16px;
+      }
+      .bh-header-inner {
+        height: 64px;
+      }
+      .bh-mobile-drawer {
+        top: 64px;
+        max-height: calc(100dvh - 64px);
+        padding: 14px 16px 20px 16px;
+      }
+      .bh-cart-btn {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .bh-cart-btn-label {
+        display: none;
+      }
+      .bh-hero-img {
+        height: 240px;
+      }
+      .bh-category-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 4px 2px 10px 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .bh-category-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .bh-tab-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .bh-product-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .bh-cart-drawer {
+        width: 100%;
+        max-width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+      }
+      .bh-cart-header {
+        padding: 14px 16px;
+      }
+      .bh-cart-items-wrap {
+        padding: 14px 16px;
+        max-height: 35vh;
+      }
+      .bh-cart-checkout-section {
+        padding: 16px;
+        flex: 1;
+        overflow-y: auto;
+      }
+      /* Prevent mobile Safari from zooming in on input focus */
+      .bh-input, input, select, textarea {
+        font-size: 16px !important;
+      }
+      .bh-input {
+        min-height: 44px;
+        padding: 10px 12px;
+      }
+      .bh-modal {
+        padding: 12px;
+        align-items: center;
+      }
+      .bh-modal-box {
+        padding: 20px 16px;
+        border-radius: 14px;
+        max-height: 92dvh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bh-header-inner {
+        height: 60px;
+      }
+      .bh-mobile-drawer {
+        top: 60px;
+        max-height: calc(100dvh - 60px);
+      }
+      .bh-logo-img {
+        width: auto;
+        max-width: 135px;
+        height: 44px;
+      }
+      .bh-brand-name {
+        display: none;
+      }
+      .bh-hero {
+        padding: 50px 0 44px 0;
+        min-height: 360px;
+      }
+      .bh-hero-title {
+        font-size: 34px;
+        line-height: 1.15;
+      }
+      .bh-hero-badges {
+        gap: 8px;
+        font-size: 13px;
+      }
+      .bh-hero-dot {
+        font-size: 14px;
+      }
+      .bh-hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .bh-hero-actions .bh-btn {
+        width: 100%;
+        min-height: 44px;
+        justify-content: center;
+      }
+      .bh-hero-img {
+        height: 210px;
+      }
+      .bh-hero-caption {
+        padding: 14px 12px 8px 12px;
+      }
+      .bh-hero-caption-title {
+        font-size: 13px;
+      }
+      .bh-hero-caption-sub {
+        font-size: 11px;
+      }
+      .bh-section {
+        padding: 30px 0;
+      }
+      .bh-section-title {
+        font-size: 22px;
+      }
+      .bh-section-desc {
+        font-size: 13px;
+      }
+      .bh-tab-btn {
+        padding: 7px 12px;
+        font-size: 13px;
+        min-height: 38px;
+      }
+      .bh-product-card {
+        border-radius: 12px;
+      }
+      .bh-product-img-wrap {
+        height: 175px;
+      }
+      .bh-product-body {
+        padding: 14px 14px;
+      }
+      .bh-product-name {
+        font-size: 17px;
+      }
+      .bh-product-desc {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      .bh-product-price {
+        font-size: 17px;
+      }
+      .bh-btn.bh-btn-sm {
+        min-height: 40px;
+        padding: 8px 12px;
+      }
+      .bh-contact-card {
+        padding: 18px 14px;
+      }
+      .bh-contact-item {
+        font-size: 13px;
+      }
+      .bh-faq-btn {
+        padding: 12px 14px;
+        font-size: 14px;
+        min-height: 46px;
+      }
+      .bh-faq-content {
+        padding: 0 14px 12px 14px;
+        font-size: 13px;
+      }
+      .bh-order-type-btn {
+        min-height: 40px;
+        font-size: 12px;
+      }
+      .bh-qty-btn {
+        width: 32px;
+        height: 32px;
+      }
+      .bh-footer {
+        padding: 34px 0 20px 0;
+      }
+      .bh-footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+      }
+      .bh-summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .bh-container {
+        padding: 0 12px;
+      }
+      .bh-brand-name {
+        font-size: 15px;
+      }
+      .bh-hero-title {
+        font-size: 24px;
+      }
+      .bh-hero-img {
+        height: 190px;
+      }
+      .bh-tab-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="bh-toast" class="bh-toast" role="alert" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+    <span id="bh-toast-msg">Item added to cart</span>
+  </div>
+
+  <!-- Header -->
+  <header class="bh-header" id="bh-header">
+    <div class="bh-container">
+      <div class="bh-header-inner">
+        <a href="#home" class="bh-logo-link" id="bh-brand-link" aria-label="Biryani Hub Home">
+          <img src="https://iili.io/nFtATv9.png" onerror="this.src='/logo.png'" alt="Biryani Hub" class="bh-logo-img" width="160" height="56" decoding="async">
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="bh-nav" id="bh-desktop-nav" aria-label="Main Navigation">
+          <a href="#home" class="bh-nav-link active" data-route="home">Home</a>
+          <a href="#deals" class="bh-nav-link" data-route="deals">Deals</a>
+          <a href="#menu" class="bh-nav-link" data-route="menu">Menu</a>
+          <a href="#about" class="bh-nav-link" data-route="about">About Us</a>
+          <a href="#blog" class="bh-nav-link" data-route="blog">Blog</a>
+          <a href="#contact" class="bh-nav-link" data-route="contact">Contact</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="bh-header-actions">
+          <button type="button" class="bh-cart-btn" id="bh-open-cart-btn" aria-label="View Shopping Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span class="bh-cart-btn-label">Cart</span>
+            <span class="bh-cart-badge" id="bh-cart-count">0</span>
+          </button>
+
+          <button type="button" class="bh-menu-toggle" id="bh-mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer & Backdrop -->
+    <div class="bh-mobile-overlay" id="bh-mobile-overlay"></div>
+    <div class="bh-mobile-drawer" id="bh-mobile-drawer">
+      <a href="#home" class="bh-mobile-nav-link active" data-route="home" onclick="closeMobileMenu()">Home</a>
+      <a href="#deals" class="bh-mobile-nav-link" data-route="deals" onclick="closeMobileMenu()">Deals &amp; Combos</a>
+      <a href="#menu" class="bh-mobile-nav-link" data-route="menu" onclick="closeMobileMenu()">Menu &amp; Ordering</a>
+      <a href="#about" class="bh-mobile-nav-link" data-route="about" onclick="closeMobileMenu()">About Biryani Hub</a>
+      <a href="#blog" class="bh-mobile-nav-link" data-route="blog" onclick="closeMobileMenu()">Food Blog</a>
+      <a href="#contact" class="bh-mobile-nav-link" data-route="contact" onclick="closeMobileMenu()">Contact &amp; Location</a>
+      <a href="#menu" class="bh-btn bh-btn-primary bh-btn-block" onclick="closeMobileMenu()" style="margin-top: 8px;">View Menu &amp; Order</a>
+    </div>
+  </header>
+
+  <main id="bh-main-content">
+    <!-- VIEW: HOME -->
+    <div id="view-home" class="bh-view active">
+      <!-- Hero (Background Image Source: https://freeimage.host/i/nFpRciu) -->
+      <section class="bh-hero" id="bh-home-hero" data-bg-src="https://freeimage.host/i/nFpRciu">
+        <div class="bh-hero-bg-wrapper" aria-hidden="true">
+          <div class="bh-hero-bg-anim"></div>
+          <div class="bh-hero-bg-overlay"></div>
+        </div>
+        <div class="bh-container bh-hero-container">
+          <div class="bh-hero-grid bh-home-hero-grid">
+            <div class="bh-hero-content">
+              <h1 class="bh-hero-title">Biryani Hub</h1>
+              
+              <div class="bh-hero-badges">
+                <span>Real Taste of Karachi</span>
+                <span class="bh-hero-dot" aria-hidden="true">&bull;</span>
+                <span>Delivery &amp; Takeaway</span>
+                <span class="bh-hero-dot" aria-hidden="true">&bull;</span>
+                <span>Civic Center, Bahria Town</span>
+              </div>
+
+              <div class="bh-hero-actions">
+                <a href="#menu" class="bh-btn bh-btn-primary">Order Online</a>
+                <a href="#about" class="bh-btn bh-btn-outline">About Biryani Hub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured / Popular Dishes -->
+      <section class="bh-section bh-content-auto" id="bh-featured-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h2 class="bh-section-title">Popular Menu</h2>
+            <p class="bh-section-desc">Our most popular biryani selections and accompaniments prepared fresh for dine-in, takeaway, and fast home delivery in Bahria Town.</p>
+          </div>
+          <div class="bh-product-grid" id="bh-featured-grid"></div>
+          <div style="text-align: center; margin-top: 36px;">
+            <a href="#menu" class="bh-btn bh-btn-secondary">View Full Menu &amp; Sides</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Deals Section -->
+      <section class="bh-section bh-section-alt bh-content-auto" id="bh-deals-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h2 class="bh-section-title">Special Deals &amp; Combos</h2>
+            <p class="bh-section-desc">Value-packed family deals and combos prepared fresh with authentic Pakistani chicken biryani, raita, salad, and chilled drinks.</p>
+          </div>
+          <div class="bh-product-grid" id="bh-deals-grid"></div>
+        </div>
+      </section>
+
+      <!-- Why Choose Biryani Hub -->
+      <section class="bh-section bh-content-auto" id="bh-why-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h2 class="bh-section-title">Why Choose Biryani Hub</h2>
+            <p class="bh-section-desc">Dedicated to quality, authentic Pakistani spice profiles, and reliable local food ordering in Bahria Town Rawalpindi.</p>
+          </div>
+          <div class="bh-features-grid">
+            <div class="bh-feature-card">
+              <svg class="bh-feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <h3 class="bh-feature-title">Authentic Basmati Rice</h3>
+              <p class="bh-feature-text">Cooked with fragrant long-grain basmati rice and signature spices for the distinct Pakistani biryani taste.</p>
+            </div>
+            <div class="bh-feature-card">
+              <svg class="bh-feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <h3 class="bh-feature-title">Fresh Daily Preparation</h3>
+              <p class="bh-feature-text">Every batch is prepared fresh each day with carefully selected chicken pieces, fresh herbs, and traditional spices.</p>
+            </div>
+            <div class="bh-feature-card">
+              <svg class="bh-feature-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <h3 class="bh-feature-title">Direct WhatsApp &amp; Call</h3>
+              <p class="bh-feature-text">Place orders instantly via website cart, telephone, or direct WhatsApp messaging with our Bahria Town branch.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section (On Home Page) -->
+      <section class="bh-section bh-content-auto" id="bh-faq-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h2 class="bh-section-title">Frequently Asked Questions</h2>
+            <p class="bh-section-desc">Common questions regarding location, ordering, takeaway, and our Pakistani biryani offerings.</p>
+          </div>
+          <div class="bh-faq-list" id="bh-faq-list"></div>
+        </div>
+      </section>
+
+      <!-- Contact Preview -->
+      <section class="bh-section bh-section-alt bh-content-auto" id="bh-home-contact-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h2 class="bh-section-title">Contact Us</h2>
+            <p class="bh-section-desc">Visit Biryani Hub or get in touch for takeout and food delivery in Bahria Town Rawalpindi.</p>
+          </div>
+          <div class="bh-contact-grid">
+            <div class="bh-contact-card">
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <div class="bh-contact-label">Restaurant Address</div>
+                  <div class="bh-contact-val">Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan</div>
+                </div>
+              </div>
+
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <div class="bh-contact-label">Telephone</div>
+                  <div class="bh-contact-val"><a href="tel:0512728881">0512728881</a></div>
+                </div>
+              </div>
+
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                <div>
+                  <div class="bh-contact-label">Mobile &amp; Order Line</div>
+                  <div class="bh-contact-val"><a href="tel:03311117525">03311117525</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bh-contact-card" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px;">
+              <h3 style="font-size: 20px; font-weight: 700; color: var(--bh-secondary);">Order Online Today</h3>
+              <p style="color: var(--bh-text-muted); font-size: 14px;">Craving piping hot biryani? Browse our complete menu, add items to your online cart, and send your order straight to our kitchen via WhatsApp or phone.</p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="#menu" class="bh-btn bh-btn-primary">Browse Full Menu</a>
+                <a href="https://wa.me/923311117525?text=Hello%20Biryani%20Hub,%20I%20would%20like%20to%20order" target="_blank" rel="noopener noreferrer" class="bh-btn bh-btn-outline">Chat on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: MENU -->
+    <div id="view-menu" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h1 class="bh-section-title">Food Menu</h1>
+            <p class="bh-section-desc">Authentic Pakistani biryani, rice specialties, and fresh sides available for dine-in, takeaway, and delivery in Bahria Town Rawalpindi.</p>
+          </div>
+
+          <div class="bh-category-tabs" id="bh-menu-category-tabs">
+            <button type="button" class="bh-tab-btn active" data-category="all">All Items</button>
+            <button type="button" class="bh-tab-btn" data-category="Deals">Deals</button>
+            <button type="button" class="bh-tab-btn" data-category="Biryani">Biryani &amp; Rice</button>
+            <button type="button" class="bh-tab-btn" data-category="Sides">Sides</button>
+          </div>
+
+          <div class="bh-product-grid" id="bh-menu-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: ABOUT -->
+    <div id="view-about" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h1 class="bh-section-title">About Biryani Hub</h1>
+            <p class="bh-section-desc">Offering Real Taste of Karachi. Serving Pakistani food with a primary focus on authentic biryani and rice-based specialties in Bahria Town, Rawalpindi.</p>
+          </div>
+
+          <div class="bh-hero-grid" style="margin-bottom: 48px;">
+            <div>
+              <h2 style="font-size: 24px; font-weight: 700; color: var(--bh-secondary); margin-bottom: 16px;">Our Focus on Authentic Biryani &bull; Real Taste of Karachi</h2>
+              <p style="color: var(--bh-text-muted); font-size: 15px; margin-bottom: 16px; line-height: 1.7;">Biryani Hub operates from Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan. Offering the real taste of Karachi, we specialize in authentic Pakistani recipes, long-grain fragrant basmati rice, tender chicken, and balanced spices.</p>
+              <p style="color: var(--bh-text-muted); font-size: 15px; margin-bottom: 20px; line-height: 1.7;">Whether you are picking up a quick lunch, dining with friends, or ordering dinner for family gatherings, Biryani Hub prepares dishes fresh daily to provide genuine Pakistani comfort food.</p>
+              
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <a href="#menu" class="bh-btn bh-btn-primary">View Our Menu</a>
+                <a href="#contact" class="bh-btn bh-btn-outline">Contact Details</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="bh-hero-img-card">
+                <img src="https://iili.io/nFqLKCJ.png" alt="Biryani Hub authentic Pakistani Biryani dish" class="bh-hero-img" width="480" height="380" loading="lazy" decoding="async">
+                <div class="bh-hero-caption">
+                  <div class="bh-hero-caption-title">Biryani Hub Kitchen</div>
+                  <div class="bh-hero-caption-sub">Phase 4 Civic Center, Bahria Town, Rawalpindi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: BLOG -->
+    <div id="view-blog" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h1 class="bh-section-title">Biryani Hub Blog</h1>
+            <p class="bh-section-desc">Articles, guides, and culinary insights on Pakistani biryani and dining in Bahria Town Rawalpindi.</p>
+          </div>
+
+          <div class="bh-blog-grid" id="bh-blog-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: CONTACT -->
+    <div id="view-contact" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container">
+          <div class="bh-section-header">
+            <h1 class="bh-section-title">Contact &amp; Location</h1>
+            <p class="bh-section-desc">Reach out to Biryani Hub in Bahria Town Phase 4 Civic Center, Rawalpindi.</p>
+          </div>
+
+          <div class="bh-contact-grid">
+            <div class="bh-contact-card">
+              <h2 style="font-size: 20px; font-weight: 700; color: var(--bh-secondary); margin-bottom: 20px;">Restaurant Details</h2>
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <div class="bh-contact-label">Address</div>
+                  <div class="bh-contact-val">Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan</div>
+                </div>
+              </div>
+
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <div class="bh-contact-label">Landline Telephone</div>
+                  <div class="bh-contact-val"><a href="tel:0512728881">0512728881</a></div>
+                </div>
+              </div>
+
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                <div>
+                  <div class="bh-contact-label">Mobile &amp; WhatsApp</div>
+                  <div class="bh-contact-val"><a href="tel:03311117525">03311117525</a></div>
+                </div>
+              </div>
+
+              <div class="bh-contact-item">
+                <svg class="bh-contact-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <div>
+                  <div class="bh-contact-label">Facebook Community</div>
+                  <div class="bh-contact-val"><a href="https://www.facebook.com/biryanihubofficial/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bh-contact-card">
+              <h2 style="font-size: 20px; font-weight: 700; color: var(--bh-secondary); margin-bottom: 12px;">Quick Inquiry or Feedback</h2>
+              <p style="color: var(--bh-text-muted); font-size: 14px; margin-bottom: 20px;">Send a direct message to our restaurant team on WhatsApp for prompt assistance.</p>
+              
+              <form id="bh-quick-contact-form" onsubmit="handleQuickContact(event)">
+                <div class="bh-form-group">
+                  <label class="bh-input-label" for="qc-name">Your Name</label>
+                  <input type="text" id="qc-name" class="bh-input" required placeholder="Enter your name">
+                </div>
+                <div class="bh-form-group">
+                  <label class="bh-input-label" for="qc-phone">Phone Number * <span style="font-weight: 400; font-size: 11px; color: var(--bh-text-muted);">(Digits only)</span></label>
+                  <input type="tel" id="qc-phone" class="bh-input" required placeholder="03XXXXXXXXX" inputmode="numeric" pattern="[0-9]{10,15}" maxlength="15" autocomplete="tel" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Please enter numbers only (e.g. 03XXXXXXXXX)">
+                </div>
+                <div class="bh-form-group">
+                  <label class="bh-input-label" for="qc-message">Message or Inquiry</label>
+                  <textarea id="qc-message" class="bh-textarea" rows="4" required placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="bh-btn bh-btn-primary bh-btn-block">Send via WhatsApp</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: PRIVACY POLICY -->
+    <div id="view-privacy" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container" style="max-width: 800px;">
+          <h1 class="bh-section-title">Privacy Policy</h1>
+          <p style="color: var(--bh-text-muted); font-size: 13px; margin-bottom: 24px;">Last updated: September 2026</p>
+          <div style="color: var(--bh-text); font-size: 15px; line-height: 1.8;">
+            <p style="margin-bottom: 16px;">Biryani Hub values your privacy. This Privacy Policy describes how we handle customer information submitted via our online food ordering interface and direct contact channels.</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">Information Collected for Orders</h3>
+            <p style="margin-bottom: 16px;">When you place an order for delivery or takeaway, we ask for standard details including your name, contact phone number, delivery address (for delivery orders), and any specific meal preparation notes.</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">How Your Information is Used</h3>
+            <p style="margin-bottom: 16px;">Your details are strictly used to fulfill your order, coordinate delivery to your location in Bahria Town, and contact you regarding order status or delivery updates.</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">Contact Us</h3>
+            <p>If you have any questions regarding your data or order records, you can reach Biryani Hub at 0512728881 or via mobile at 03311117525.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- VIEW: TERMS -->
+    <div id="view-terms" class="bh-view">
+      <section class="bh-section">
+        <div class="bh-container" style="max-width: 800px;">
+          <h1 class="bh-section-title">Terms &amp; Conditions</h1>
+          <p style="color: var(--bh-text-muted); font-size: 13px; margin-bottom: 24px;">Last updated: September 2026</p>
+          <div style="color: var(--bh-text); font-size: 15px; line-height: 1.8;">
+            <p style="margin-bottom: 16px;">Welcome to the Biryani Hub ordering platform. By using this website to view our menu or submit food orders, you agree to the following terms:</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">Orders &amp; Confirmation</h3>
+            <p style="margin-bottom: 16px;">Submitting an order online sends your request directly to our team via WhatsApp or telephone. All orders are subject to fresh batch availability and confirmation by Biryani Hub staff.</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">Pricing &amp; Delivery</h3>
+            <p style="margin-bottom: 16px;">Listed prices represent standard estimates and may be updated periodically. Delivery fees are applied according to distance within Bahria Town and surrounding areas.</p>
+            <h3 style="font-size: 18px; font-weight: 700; color: var(--bh-secondary); margin: 24px 0 8px 0;">Cancellations</h3>
+            <p>If you need to change or cancel an order, please call our order hotline at 03311117525 immediately so our kitchen team can adjust before food preparation or dispatch.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Cart Slide-over Drawer -->
+  <div class="bh-cart-overlay" id="bh-cart-overlay" onclick="closeCart()"></div>
+  <aside class="bh-cart-drawer" id="bh-cart-drawer" aria-label="Shopping Cart">
+    <div class="bh-cart-header">
+      <div class="bh-cart-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Your Order</span>
+      </div>
+      <button type="button" class="bh-close-btn" onclick="closeCart()" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="bh-cart-items-wrap" id="bh-cart-items"></div>
+
+    <div class="bh-cart-checkout-section" id="bh-cart-checkout">
+      <div class="bh-order-type-switch">
+        <button type="button" class="bh-order-type-btn active" id="btn-type-delivery" onclick="setOrderType('Delivery')">Delivery</button>
+        <button type="button" class="bh-order-type-btn" id="btn-type-pickup" onclick="setOrderType('Pickup')">Takeaway Pickup</button>
+      </div>
+
+      <form id="bh-checkout-form" onsubmit="submitOrder(event)">
+        <div class="bh-form-group">
+          <label class="bh-input-label" for="cust-name">Full Name *</label>
+          <input type="text" id="cust-name" class="bh-input" required placeholder="e.g. Abdullah Khan">
+        </div>
+        <div class="bh-form-group">
+          <label class="bh-input-label" for="cust-phone">Phone Number * <span style="font-weight: 400; font-size: 11px; color: var(--bh-text-muted);">(Digits only)</span></label>
+          <input type="tel" id="cust-phone" class="bh-input" required placeholder="03XXXXXXXXX" inputmode="numeric" pattern="[0-9]{10,15}" maxlength="15" autocomplete="tel" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Please enter numbers only (e.g. 03XXXXXXXXX)">
+        </div>
+        <div class="bh-form-group" id="cust-address-group">
+          <label class="bh-input-label" for="cust-address">Delivery Address (Bahria Town) *</label>
+          <input type="text" id="cust-address" class="bh-input" placeholder="House #, Street, Phase / Sector">
+        </div>
+        <div class="bh-form-group">
+          <label class="bh-input-label" for="cust-notes">Special Instructions</label>
+          <input type="text" id="cust-notes" class="bh-input" placeholder="e.g. Extra raita, mild spice">
+        </div>
+
+        <div style="margin-top: 14px; margin-bottom: 14px;">
+          <div class="bh-calc-row">
+            <span>Subtotal</span>
+            <span id="bh-calc-subtotal">Rs. 0</span>
+          </div>
+          <div class="bh-calc-row" id="bh-delivery-row">
+            <span>Delivery Fee</span>
+            <span id="bh-calc-delivery">Rs. 150</span>
+          </div>
+          <div class="bh-calc-row total">
+            <span>Estimated Total</span>
+            <span id="bh-calc-total">Rs. 0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="bh-btn bh-btn-primary bh-btn-block" id="bh-submit-order-btn">
+          <span>Place Order via WhatsApp</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- Order Confirmation Modal -->
+  <div class="bh-modal" id="bh-order-modal">
+    <div class="bh-modal-box">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #dcfce7; color: #15803d; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 700; color: var(--bh-secondary);">Order Prepared!</h3>
+        <p style="font-size: 14px; color: var(--bh-text-muted);">Your order summary is ready to send to Biryani Hub via WhatsApp.</p>
+      </div>
+
+      <div id="bh-order-modal-summary" class="bh-order-modal-summary">
+        <div class="bh-summary-header">
+          <div>
+            <h4 class="bh-summary-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Food Order Summary
+            </h4>
+            <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">Biryani Hub • Bahria Town Phase 4</div>
+          </div>
+          <div class="bh-summary-badges">
+            <span class="bh-summary-badge bh-summary-badge-type">Delivery</span>
+            <span class="bh-summary-badge bh-summary-badge-ref">#PREPARED</span>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: #6b7280; margin: 0; text-align: center; padding: 12px 0;">Order details and pricing breakdown will be generated here upon checkout.</p>
+      </div>
+
+      <div style="display: flex; gap: 12px; flex-direction: column;">
+        <a id="bh-modal-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="bh-btn bh-btn-primary bh-btn-block">
+          Open WhatsApp to Send Order
+        </a>
+        <button type="button" class="bh-btn bh-btn-outline bh-btn-block" onclick="copyOrderSummary()">
+          Copy Order Summary
+        </button>
+        <button type="button" class="bh-btn bh-btn-secondary bh-btn-block" onclick="closeOrderModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Reader Modal -->
+  <div class="bh-modal" id="bh-blog-modal">
+    <div class="bh-modal-box" style="max-width: 680px;">
+      <button type="button" class="bh-close-btn" style="position: absolute; top: 16px; right: 16px;" onclick="closeBlogModal()" aria-label="Close article">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="bh-blog-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Chat/Order Action (Separate from social icons) -->
+  <a href="https://wa.me/923311117525?text=Hello%20Biryani%20Hub,%20I%20would%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" class="bh-floating-whatsapp" id="bh-floating-wa" aria-label="Chat and Order on WhatsApp">
+    <div class="bh-wa-pulse">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.16 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.22-.16-.47-.29"/></svg>
+      <span class="bh-wa-dot"></span>
+    </div>
+    <span>Order on WhatsApp</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="bh-footer bh-content-auto" id="bh-footer">
+    <div class="bh-container">
+      <div class="bh-footer-grid">
+        <div>
+          <div class="bh-footer-logo-wrap">
+            <img src="https://iili.io/nFtATv9.png" onerror="this.src='/logo.png'" alt="Biryani Hub" class="bh-footer-logo-img" width="220" height="76" loading="lazy" decoding="async">
+          </div>
+          <p class="bh-footer-desc">Serving authentic Pakistani chicken biryani, fragrant basmati rice, and fresh traditional sides in Phase 4 Civic Center, Bahria Town Rawalpindi.</p>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <a href="https://www.facebook.com/biryanihubofficial/" target="_blank" rel="noopener noreferrer" class="bh-footer-social-link" aria-label="Biryani Hub on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <span style="font-size: 13px;">Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="bh-footer-heading">Quick Links</div>
+          <ul class="bh-footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#deals">Special Deals</a></li>
+            <li><a href="#menu">Food Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#blog">Biryani Blog</a></li>
+            <li><a href="#contact">Contact &amp; Location</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="bh-footer-heading">Legal &amp; Info</div>
+          <ul class="bh-footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms &amp; Conditions</a></li>
+            <li><a href="#contact">Takeaway &amp; Delivery</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="bh-footer-heading">Visit or Call</div>
+          <p style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan</p>
+          <div style="font-size: 13px; margin-bottom: 6px;">
+            <strong>Tel:</strong> <a href="tel:0512728881" class="bh-footer-phone-link">0512728881</a>
+          </div>
+          <div style="font-size: 13px;">
+            <strong>Order Line:</strong> <a href="tel:03311117525" class="bh-footer-phone-link">03311117525</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bh-footer-bottom">
+        <div>&copy; 2026 Biryani Hub. All rights reserved. Authentic Pakistani Cuisine.</div>
+        <div style="display: flex; gap: 16px;">
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#contact">Location</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Centralized Application Script -->
+  <script>
+    // Centralized Business Configuration
+    const SITE_CONFIG = {
+      businessName: "Biryani Hub",
+      tagline: "Offering Real Taste of Karachi.",
+      category: "Pakistani Restaurant / Biryani Restaurant / Food Ordering",
+      address: "Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan",
+      phone: "0512728881",
+      mobile: "03311117525",
+      whatsapp: "923311117525",
+      facebook: "https://www.facebook.com/biryanihubofficial/",
+      facebookFollowers: "11K+ followers",
+      website: "https://biryanihub.pk",
+      currency: "Rs.",
+      deliveryFee: 150
+    };
+
+    // Centralized Assets Configuration
+    const SITE_ASSETS = {
+      logo: "https://iili.io/nFtATv9.png",
+      heroBg: "https://iili.io/nFmRT2R.png",
+      heroFood: "https://iili.io/nFqLKCJ.png",
+      biryaniReal: "https://iili.io/nFqLKCJ.png",
+      familyDeal: "https://iili.io/nFEzZx4.png",
+      bigDeal: "https://iili.io/nFEMzYJ.png",
+      biryaniDouble: "https://iili.io/nFlPDnn.png",
+      biryaniSingle: "https://iili.io/nFlEB5B.png",
+      biryaniRiceSada: "https://iili.io/nFBY2CN.png",
+      extraChickenPiece: "https://iili.io/nF1C80u.png",
+      zeeraRaita: "https://iili.io/nFYbmKu.png",
+      freshSalad: "https://iili.io/nFcqsSV.png"
+    };
+
+    // Products Data (Prices easily editable here)
+    const PRODUCTS = [
+      {
+        id: "family-deal",
+        name: "Family Deal",
+        category: "Deals",
+        price: 2650,
+        description: "5 REG BIRYANI, 5 RAITA\n5 SALAD, 1.5 LITER DRINK",
+        image: SITE_ASSETS.familyDeal,
+        isFeatured: true
+      },
+      {
+        id: "big-deal",
+        name: "Big Deal",
+        category: "Deals",
+        price: 5300,
+        description: "10X REG BIRYANI, 1 PLAIN ZARDA\n2X 1.5 LITER COLD DRINK",
+        image: SITE_ASSETS.bigDeal,
+        isFeatured: true
+      },
+      {
+        id: "chicken-biryani",
+        name: "Chicken Biryani Double",
+        category: "Biryani",
+        price: 480,
+        description: "Aromatic basmati rice cooked on dum with double tender seasoned chicken and whole spices.",
+        image: SITE_ASSETS.biryaniDouble,
+        isFeatured: true
+      },
+      {
+        id: "chicken-biryani-single",
+        name: "Chicken Biryani Single",
+        category: "Biryani",
+        price: 320,
+        description: "Aromatic basmati rice cooked on dum with single tender seasoned chicken piece and whole spices.",
+        image: SITE_ASSETS.biryaniSingle,
+        isFeatured: true
+      },
+      {
+        id: "biryani-rice",
+        name: "Biryani Rice (Sada)",
+        category: "Biryani",
+        price: 220,
+        description: "Fragrant basmati biryani rice cooked in aromatic chicken stock and traditional whole spices.",
+        image: SITE_ASSETS.biryaniRiceSada,
+        isFeatured: true
+      },
+      {
+        id: "extra-chicken-piece",
+        name: "Extra Chicken Piece",
+        category: "Sides",
+        price: 180,
+        description: "Juicy, spiced additional chicken piece prepared fresh to add to your biryani plate.",
+        image: SITE_ASSETS.extraChickenPiece,
+        isFeatured: false
+      },
+      {
+        id: "fresh-salad",
+        name: "Fresh Salad",
+        category: "Sides",
+        price: 60,
+        description: "Crisp sliced cucumbers, onions, and fresh seasonal salad vegetables with a touch of lemon.",
+        image: SITE_ASSETS.freshSalad,
+        isFeatured: true
+      },
+      {
+        id: "zeera-raita",
+        name: "Zeera Raita",
+        category: "Sides",
+        price: 60,
+        description: "Chilled fresh yogurt infused with roasted cumin seeds and fine herbs, perfect with spicy biryani.",
+        image: SITE_ASSETS.zeeraRaita,
+        isFeatured: true
+      }
+    ];
+
+    // Frequently Asked Questions
+    const FAQS = [
+      {
+        q: "Where is Biryani Hub located in Bahria Town?",
+        a: "Biryani Hub is located at Shop No. 2, Ground Floor, 169-A Plaza, Block D Street, Phase 4 Civic Center, Bahria Town, Rawalpindi, Pakistan."
+      },
+      {
+        q: "How can I place an online order for food delivery?",
+        a: "Browse our menu on this website, click 'Add to Cart' for any item, fill in your delivery address in Bahria Town, and click 'Place Order via WhatsApp'. Your order will be sent directly to our kitchen staff."
+      },
+      {
+        q: "Can I pick up my order for takeaway?",
+        a: "Yes! In the shopping cart drawer, choose 'Takeaway Pickup' as your order type. Your delivery fee will be set to zero and your order will be prepared for pickup at our Civic Center branch."
+      },
+      {
+        q: "What are the direct telephone and WhatsApp contact numbers?",
+        a: "You can reach our landline at 0512728881 or call/WhatsApp our mobile order hotline at 03311117525."
+      },
+      {
+        q: "What food specialties does Biryani Hub serve?",
+        a: "We specialize in authentic Pakistani biryani made with long-grain basmati rice and fresh chicken, alongside Biryani Rice."
+      }
+    ];
+
+    // Blog Articles
+    const BLOG_POSTS = [
+      {
+        id: "biryani-guide-bahria-town",
+        title: "A Local Guide to Biryani in Bahria Town, Rawalpindi",
+        date: "September 2026",
+        category: "Local Guide",
+        excerpt: "Discover why Bahria Town Phase 4 Civic Center has become a prime destination for food lovers seeking authentic, fragrant Pakistani biryani.",
+        content: "Bahria Town Rawalpindi is known for its vibrant food culture. Phase 4 Civic Center in particular attracts residents from across the twin cities looking for quality dining and quick takeaways.\n\nBiryani holds a special place in Pakistani culinary traditions. A great biryani requires aged basmati rice, balanced whole spices including cardamom and star anise, and perfectly tender meat that infuses flavor into every grain of rice.\n\nWhether you are a resident in Phase 4 or visiting the Civic Center commercial area, Biryani Hub offers an authentic taste that satisfies every biryani craving."
+      },
+      {
+        id: "authentic-chicken-biryani-craft",
+        title: "What Makes Authentic Pakistani Chicken Biryani So Irresistible?",
+        date: "September 2026",
+        category: "Culinary Insights",
+        excerpt: "Exploring the harmony of basmati rice, caramelized onions, and slow dum cooking that defines memorable Pakistani biryani.",
+        content: "Authentic Pakistani biryani is celebrated for its distinctive aroma and vibrant layers. Unlike mixed pulao, biryani is crafted by parboiling long-grain basmati rice and layering it over a robust spiced chicken masala.\n\nThe pot is sealed tightly during the 'dum' phase, allowing steam to circulate. This ensures every grain absorbs the fragrance of kewra, saffron color, and herbs like mint and coriander.\n\nAccompanied by cool zeera raita and sliced fresh onions, biryani remains the undisputed favorite comfort meal across Pakistan."
+      },
+      {
+        id: "biryani-for-gatherings",
+        title: "Serving Biryani for Family Gatherings and Dawat",
+        date: "August 2026",
+        category: "Serving Tips",
+        excerpt: "Helpful recommendations on estimating portion sizes, ideal side pairings, and keeping biryani piping hot for guests.",
+        content: "No Pakistani get-together or dawat is complete without a steaming platter of biryani at the center of the table.\n\nWhen planning an order for family gatherings, pairing Chicken Biryani with fresh cucumber-tomato salad and chilled zeera raita creates a well-rounded feast.\n\nBiryani Hub takes advance orders for family meals and gatherings across Bahria Town Rawalpindi."
+      }
+    ];
+
+    // Shopping Cart State
+    let cart = [];
+    let currentOrderType = "Delivery";
+
+    // Initialize LocalStorage Cart
+    function initCart() {
+      try {
+        const saved = localStorage.getItem("bh_cart");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          cart = parsed
+            .filter(item => PRODUCTS.some(p => p.id === item.id))
+            .map(item => {
+              const product = PRODUCTS.find(p => p.id === item.id);
+              return product ? { ...item, name: product.name, price: product.price } : item;
+            });
+        }
+      } catch (e) {
+        cart = [];
+      }
+      updateCartUI();
+    }
+
+    function saveCart() {
+      try {
+        localStorage.setItem("bh_cart", JSON.stringify(cart));
+      } catch (e) {}
+      updateCartUI();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("bh-toast");
+      const msgSpan = document.getElementById("bh-toast-msg");
+      if (toast && msgSpan) {
+        msgSpan.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      }
+    }
+
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          qty: 1
+        });
+      }
+      saveCart();
+      showToast(`${product.name} added to cart`);
+    }
+
+    function changeQty(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+      saveCart();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      saveCart();
+    }
+
+    function setOrderType(type) {
+      currentOrderType = type;
+      const delBtn = document.getElementById("btn-type-delivery");
+      const pickBtn = document.getElementById("btn-type-pickup");
+      const addrGroup = document.getElementById("cust-address-group");
+      const addrInput = document.getElementById("cust-address");
+      const delRow = document.getElementById("bh-delivery-row");
+
+      if (type === "Delivery") {
+        delBtn.classList.add("active");
+        pickBtn.classList.remove("active");
+        if (addrGroup) addrGroup.style.display = "block";
+        if (addrInput) addrInput.required = true;
+        if (delRow) delRow.style.display = "flex";
+      } else {
+        pickBtn.classList.add("active");
+        delBtn.classList.remove("active");
+        if (addrGroup) addrGroup.style.display = "none";
+        if (addrInput) addrInput.required = false;
+        if (delRow) delRow.style.display = "none";
+      }
+      updateCalculations();
+    }
+
+    function updateCalculations() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const delivery = (currentOrderType === "Delivery" && cart.length > 0) ? SITE_CONFIG.deliveryFee : 0;
+      const total = subtotal + delivery;
+
+      const subEl = document.getElementById("bh-calc-subtotal");
+      const delEl = document.getElementById("bh-calc-delivery");
+      const totEl = document.getElementById("bh-calc-total");
+
+      if (subEl) subEl.textContent = `${SITE_CONFIG.currency} ${subtotal}`;
+      if (delEl) delEl.textContent = `${SITE_CONFIG.currency} ${delivery}`;
+      if (totEl) totEl.textContent = `${SITE_CONFIG.currency} ${total}`;
+
+      return { subtotal, delivery, total };
+    }
+
+    function updateCartUI() {
+      const countEl = document.getElementById("bh-cart-count");
+      const itemsContainer = document.getElementById("bh-cart-items");
+      const checkoutSection = document.getElementById("bh-cart-checkout");
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      if (countEl) countEl.textContent = totalItems;
+
+      if (!itemsContainer) return;
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `
+          <div class="bh-cart-empty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="margin: 0 auto 12px auto;"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <p style="font-weight: 600; color: var(--bh-secondary); margin-bottom: 6px;">Your cart is empty</p>
+            <p style="font-size: 13px; margin-bottom: 16px;">Add authentic biryani and sides to get started.</p>
+            <a href="#menu" class="bh-btn bh-btn-primary bh-btn-sm" onclick="closeCart()">Browse Menu</a>
+          </div>
+        `;
+        if (checkoutSection) checkoutSection.style.display = "none";
+      } else {
+        if (checkoutSection) checkoutSection.style.display = "block";
+        itemsContainer.innerHTML = cart.map(item => `
+          <div class="bh-cart-item">
+            <div class="bh-cart-item-info">
+              <div class="bh-cart-item-name">${item.name}</div>
+              <div class="bh-cart-item-price">${SITE_CONFIG.currency} ${item.price} each</div>
+            </div>
+            <div class="bh-qty-controls">
+              <button type="button" class="bh-qty-btn" onclick="changeQty('${item.id}', -1)" aria-label="Decrease quantity">-</button>
+              <span class="bh-qty-val">${item.qty}</span>
+              <button type="button" class="bh-qty-btn" onclick="changeQty('${item.id}', 1)" aria-label="Increase quantity">+</button>
+            </div>
+            <div style="font-weight: 700; min-width: 60px; text-align: right; font-size: 13px;">
+              ${SITE_CONFIG.currency} ${item.price * item.qty}
+            </div>
+            <button type="button" class="bh-remove-btn" onclick="removeFromCart('${item.id}')" aria-label="Remove item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
+          </div>
+        `).join("");
+      }
+
+      updateCalculations();
+    }
+
+    function openCart() {
+      document.getElementById("bh-cart-overlay").classList.add("open");
+      document.getElementById("bh-cart-drawer").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCart() {
+      document.getElementById("bh-cart-overlay").classList.remove("open");
+      document.getElementById("bh-cart-drawer").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Submit Order handler
+    function submitOrder(e) {
+      e.preventDefault();
+      if (cart.length === 0) {
+        alert("Your cart is empty. Please select food items first.");
+        return;
+      }
+
+      const name = document.getElementById("cust-name").value.trim();
+      const phoneInput = document.getElementById("cust-phone");
+      const phone = phoneInput ? phoneInput.value.replace(/[^0-9]/g, "").trim() : "";
+      const address = document.getElementById("cust-address").value.trim();
+      const notes = document.getElementById("cust-notes").value.trim();
+
+      if (!name) {
+        alert("Please enter your name.");
+        document.getElementById("cust-name").focus();
+        return;
+      }
+
+      if (!phone) {
+        alert("Please enter your contact phone number (numbers only).");
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      if (phone.length < 10) {
+        alert("Please enter a valid phone number with numbers only (e.g. 03XXXXXXXXX).");
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      if (currentOrderType === "Delivery" && !address) {
+        alert("Please provide your delivery address in Bahria Town.");
+        return;
+      }
+
+      const calcs = updateCalculations();
+      const orderRef = "BH-" + Math.floor(100000 + Math.random() * 900000);
+      const now = new Date().toLocaleString("en-PK", { dateStyle: "medium", timeStyle: "short" });
+
+      // Build readable WhatsApp message
+      let msg = `*NEW FOOD ORDER - BIRYANI HUB*\n`;
+      msg += `Reference: #${orderRef}\n`;
+      msg += `Order Type: ${currentOrderType}\n\n`;
+      msg += `*Customer Details:*\n`;
+      msg += `Name: ${name}\n`;
+      msg += `Phone: ${phone}\n`;
+      if (currentOrderType === "Delivery") {
+        msg += `Address: ${address}\n`;
+      }
+      if (notes) {
+        msg += `Notes: ${notes}\n`;
+      }
+      msg += `\n*Ordered Items:*\n`;
+      cart.forEach(item => {
+        msg += `- ${item.name} x ${item.qty} = ${SITE_CONFIG.currency} ${item.price * item.qty}\n`;
+      });
+      msg += `\nSubtotal: ${SITE_CONFIG.currency} ${calcs.subtotal}\n`;
+      if (currentOrderType === "Delivery") {
+        msg += `Delivery Fee: ${SITE_CONFIG.currency} ${calcs.delivery}\n`;
+      }
+      msg += `*Total Amount:* ${SITE_CONFIG.currency} ${calcs.total}\n\n`;
+      msg += `Please confirm order availability and dispatch time. Thank you!`;
+
+      // Build rich formatted visual HTML for order modal with bold headings and clean styling
+      const itemsHtml = cart.map(item => `
+        <li class="bh-summary-item-row">
+          <div class="bh-summary-item-name-wrap">
+            <span class="bh-summary-item-qty">${item.qty}x</span>
+            <span class="bh-summary-item-name">${escapeHtml(item.name)}</span>
+          </div>
+          <span class="bh-summary-item-price">${SITE_CONFIG.currency} ${item.price * item.qty}</span>
+        </li>
+      `).join("");
+
+      const summaryHtml = `
+        <div class="bh-summary-header">
+          <div>
+            <h4 class="bh-summary-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              New Food Order Summary
+            </h4>
+            <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">${now}</div>
+          </div>
+          <div class="bh-summary-badges">
+            <span class="bh-summary-badge bh-summary-badge-type">${escapeHtml(currentOrderType)}</span>
+            <span class="bh-summary-badge bh-summary-badge-ref">#${orderRef}</span>
+          </div>
+        </div>
+
+        <div class="bh-summary-section-title">Customer Details</div>
+        <div class="bh-summary-info-grid">
+          <div class="bh-summary-info-item">
+            <span class="bh-summary-info-label">Customer</span>
+            <span class="bh-summary-info-val">${escapeHtml(name)}</span>
+          </div>
+          <div class="bh-summary-info-item">
+            <span class="bh-summary-info-label">Contact Phone</span>
+            <span class="bh-summary-info-val">${escapeHtml(phone)}</span>
+          </div>
+          ${currentOrderType === "Delivery" ? `
+          <div class="bh-summary-info-item" style="grid-column: 1 / -1;">
+            <span class="bh-summary-info-label">Delivery Address</span>
+            <span class="bh-summary-info-val">${escapeHtml(address)}</span>
+          </div>` : ""}
+          ${notes ? `
+          <div class="bh-summary-info-item" style="grid-column: 1 / -1;">
+            <span class="bh-summary-info-label">Special Notes</span>
+            <span class="bh-summary-info-val" style="font-style: italic;">${escapeHtml(notes)}</span>
+          </div>` : ""}
+        </div>
+
+        <div class="bh-summary-section-title">Ordered Items (${cart.reduce((a, b) => a + b.qty, 0)})</div>
+        <ul class="bh-summary-items-list">
+          ${itemsHtml}
+        </ul>
+
+        <div class="bh-summary-calc-box">
+          <div class="bh-summary-calc-row">
+            <span>Subtotal</span>
+            <span style="font-weight: 600;">${SITE_CONFIG.currency} ${calcs.subtotal}</span>
+          </div>
+          ${currentOrderType === "Delivery" ? `
+          <div class="bh-summary-calc-row">
+            <span>Delivery Fee (Bahria Town)</span>
+            <span style="font-weight: 600;">${SITE_CONFIG.currency} ${calcs.delivery}</span>
+          </div>` : `
+          <div class="bh-summary-calc-row">
+            <span>Order Type</span>
+            <span style="font-weight: 600; color: #16a34a;">Self-Pickup / Takeaway</span>
+          </div>`}
+          <div class="bh-summary-calc-row total-row">
+            <span>Estimated Total</span>
+            <span>${SITE_CONFIG.currency} ${calcs.total}</span>
+          </div>
+        </div>
+      `;
+
+      // Encoded URL for WhatsApp
+      const waUrl = `https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+      // Show confirmation modal
+      const modal = document.getElementById("bh-order-modal");
+      const summaryEl = document.getElementById("bh-order-modal-summary");
+      const waLink = document.getElementById("bh-modal-whatsapp-link");
+
+      if (summaryEl) {
+        summaryEl.dataset.rawMsg = msg;
+        summaryEl.innerHTML = summaryHtml;
+      }
+      if (waLink) waLink.href = waUrl;
+      if (modal) modal.classList.add("open");
+
+      closeCart();
+    }
+
+    function copyOrderSummary() {
+      const summaryEl = document.getElementById("bh-order-modal-summary");
+      if (summaryEl && navigator.clipboard) {
+        const textToCopy = summaryEl.dataset.rawMsg || summaryEl.innerText || summaryEl.textContent;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToast("Order summary copied to clipboard!");
+        });
+      }
+    }
+
+    function closeOrderModal() {
+      document.getElementById("bh-order-modal").classList.remove("open");
+    }
+
+    // Quick Contact Form
+    function handleQuickContact(e) {
+      e.preventDefault();
+      const name = document.getElementById("qc-name").value.trim();
+      const phoneInput = document.getElementById("qc-phone");
+      const phone = phoneInput ? phoneInput.value.replace(/[^0-9]/g, "").trim() : "";
+      const msgText = document.getElementById("qc-message").value.trim();
+
+      if (!name) {
+        alert("Please enter your name.");
+        document.getElementById("qc-name").focus();
+        return;
+      }
+
+      if (!phone) {
+        alert("Please enter your phone number (numbers only).");
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      if (phone.length < 10) {
+        alert("Please enter a valid phone number with numbers only (e.g. 03XXXXXXXXX).");
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      const fullMsg = `*INQUIRY - BIRYANI HUB WEBSITE*\nName: ${name}\nPhone: ${phone}\nMessage: ${msgText}`;
+      window.open(`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(fullMsg)}`, "_blank");
+    }
+
+    // Blog Reader Modal
+    function openBlogArticle(id) {
+      const post = BLOG_POSTS.find(p => p.id === id);
+      if (!post) return;
+
+      const container = document.getElementById("bh-blog-modal-content");
+      if (!container) return;
+
+      container.innerHTML = `
+        <div style="font-size: 12px; color: var(--bh-primary-dark); font-weight: 700; margin-bottom: 8px; text-transform: uppercase;">${post.category} - ${post.date}</div>
+        <h2 style="font-size: 22px; font-weight: 700; color: var(--bh-secondary); margin-bottom: 16px; line-height: 1.3;">${post.title}</h2>
+        <div style="color: var(--bh-text); font-size: 15px; line-height: 1.8; white-space: pre-line;">${post.content}</div>
+        <div style="margin-top: 24px; text-align: right;">
+          <a href="#menu" class="bh-btn bh-btn-primary bh-btn-sm" onclick="closeBlogModal()">Order Biryani Now</a>
+        </div>
+      `;
+      document.getElementById("bh-blog-modal").classList.add("open");
+    }
+
+    function closeBlogModal() {
+      document.getElementById("bh-blog-modal").classList.remove("open");
+    }
+
+    // Render Product Card HTML
+    function createProductCard(p) {
+      return `
+        <div class="bh-product-card" id="product-${p.id}">
+          <div class="bh-product-img-wrap">
+            <img src="${p.image}" alt="${p.name} - Biryani Hub Bahria Town" class="bh-product-img" width="360" height="190" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <span class="bh-product-category-tag">${p.category}</span>
+          </div>
+          <div class="bh-product-body">
+            <h3 class="bh-product-name">${p.name}</h3>
+            <p class="bh-product-desc">${p.description}</p>
+            <div class="bh-product-footer">
+              <span class="bh-product-price">${SITE_CONFIG.currency} ${p.price}</span>
+              <button type="button" class="bh-btn bh-btn-primary bh-btn-sm" onclick="addToCart('${p.id}')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render Views Content
+    function renderContent() {
+      // 1. Featured items on Home
+      const featGrid = document.getElementById("bh-featured-grid");
+      if (featGrid) {
+        featGrid.innerHTML = PRODUCTS.filter(p => p.isFeatured).map(createProductCard).join("");
+      }
+
+      // 1b. Deals section on Home
+      const dealsGrid = document.getElementById("bh-deals-grid");
+      if (dealsGrid) {
+        dealsGrid.innerHTML = PRODUCTS.filter(p => p.category === "Deals").map(createProductCard).join("");
+      }
+
+      // 2. Menu grid
+      const menuGrid = document.getElementById("bh-menu-grid");
+      if (menuGrid) {
+        menuGrid.innerHTML = PRODUCTS.map(createProductCard).join("");
+      }
+
+      // 3. FAQs on Home
+      const faqList = document.getElementById("bh-faq-list");
+      if (faqList) {
+        faqList.innerHTML = FAQS.map((faq, i) => `
+          <div class="bh-faq-item ${i === 0 ? 'open' : ''}" id="faq-item-${i}">
+            <button type="button" class="bh-faq-btn" onclick="toggleFaq(${i})" aria-expanded="${i === 0}">
+              <span>${faq.q}</span>
+              <svg class="bh-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="bh-faq-content">${faq.a}</div>
+          </div>
+        `).join("");
+      }
+
+      // 4. Blog Posts
+      const blogGrid = document.getElementById("bh-blog-grid");
+      if (blogGrid) {
+        blogGrid.innerHTML = BLOG_POSTS.map(post => `
+          <article class="bh-blog-card" id="blog-${post.id}">
+            <div class="bh-blog-meta">
+              <span>${post.category}</span>
+              <span>&bull;</span>
+              <span>${post.date}</span>
+            </div>
+            <h2 class="bh-blog-title">${post.title}</h2>
+            <p class="bh-blog-excerpt">${post.excerpt}</p>
+            <div>
+              <button type="button" class="bh-btn bh-btn-outline bh-btn-sm" onclick="openBlogArticle('${post.id}')">
+                Read Article
+              </button>
+            </div>
+          </article>
+        `).join("");
+      }
+    }
+
+    function toggleFaq(index) {
+      const item = document.getElementById(`faq-item-${index}`);
+      if (item) {
+        const isOpen = item.classList.contains("open");
+        document.querySelectorAll(".bh-faq-item").forEach(el => el.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      }
+    }
+
+    // Central category filtering function
+    function setMenuCategory(cat) {
+      const tabs = document.querySelectorAll("#bh-menu-category-tabs .bh-tab-btn");
+      tabs.forEach(t => {
+        if (t.dataset.category === cat) {
+          t.classList.add("active");
+        } else {
+          t.classList.remove("active");
+        }
+      });
+      const filtered = (cat === "all") ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+      const grid = document.getElementById("bh-menu-grid");
+      if (grid) {
+        grid.innerHTML = filtered.map(createProductCard).join("");
+      }
+    }
+
+    // Category filter tabs on Menu page
+    function initCategoryTabs() {
+      const tabs = document.querySelectorAll("#bh-menu-category-tabs .bh-tab-btn");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          setMenuCategory(tab.dataset.category);
+        });
+      });
+    }
+
+    // Hash Router
+    function handleRoute() {
+      const rawHash = window.location.hash.replace("#", "") || "home";
+      const validRoutes = ["home", "deals", "menu", "about", "blog", "contact", "privacy", "terms"];
+      const targetRoute = validRoutes.includes(rawHash) ? rawHash : "home";
+
+      // Hide all views
+      document.querySelectorAll(".bh-view").forEach(v => v.classList.remove("active"));
+
+      if (targetRoute === "deals") {
+        // Show menu view with Deals category first
+        const menuView = document.getElementById("view-menu");
+        if (menuView) menuView.classList.add("active");
+        setMenuCategory("Deals");
+      } else if (targetRoute === "menu") {
+        // Show menu view with All Items category first
+        const menuView = document.getElementById("view-menu");
+        if (menuView) menuView.classList.add("active");
+        setMenuCategory("all");
+      } else {
+        const activeView = document.getElementById(`view-${targetRoute}`);
+        if (activeView) activeView.classList.add("active");
+      }
+
+      // Update nav link active states
+      document.querySelectorAll(".bh-nav-link, .bh-mobile-nav-link").forEach(link => {
+        if (link.dataset.route === targetRoute) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+
+      // Close mobile drawer if open
+      closeMobileMenu();
+
+      // Scroll to top instantaneously
+      window.scrollTo(0, 0);
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById("bh-mobile-drawer");
+      const toggle = document.getElementById("bh-mobile-menu-toggle");
+      const overlay = document.getElementById("bh-mobile-overlay");
+      if (drawer) drawer.classList.remove("open");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      if (overlay) overlay.classList.remove("open");
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("bh-mobile-drawer");
+      const toggle = document.getElementById("bh-mobile-menu-toggle");
+      const overlay = document.getElementById("bh-mobile-overlay");
+      if (!drawer) return;
+      const willOpen = !drawer.classList.contains("open");
+      if (willOpen) {
+        drawer.classList.add("open");
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+        if (overlay) overlay.classList.add("open");
+      } else {
+        closeMobileMenu();
+      }
+    }
+
+    // Strictly enforce numbers only for phone inputs
+    function setupNumericPhoneInputs() {
+      const inputs = [document.getElementById("cust-phone"), document.getElementById("qc-phone")];
+      inputs.forEach(input => {
+        if (!input) return;
+
+        // Block non-numeric characters on keydown
+        input.addEventListener("keydown", (e) => {
+          // Allow navigation and edit controls: Backspace, Tab, Enter, Escape, Delete, Arrows, Home, End
+          if ([8, 9, 13, 27, 46, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) return;
+          // Allow Ctrl/Cmd keyboard shortcuts (copy, paste, select all, undo, cut)
+          if ((e.ctrlKey || e.metaKey) && ["a", "c", "v", "x", "z"].includes(e.key.toLowerCase())) return;
+          // Disallow if the key is not a single digit 0-9
+          if (!/^[0-9]$/.test(e.key)) {
+            e.preventDefault();
+          }
+        });
+
+        // Strip non-digits in real-time (handles mobile numeric keyboards, drag & drop)
+        input.addEventListener("input", function() {
+          const digitsOnly = this.value.replace(/[^0-9]/g, "");
+          if (this.value !== digitsOnly) {
+            this.value = digitsOnly;
+          }
+        });
+
+        // Strip non-digits when pasting text from clipboard
+        input.addEventListener("paste", function(e) {
+          e.preventDefault();
+          const pasteText = (e.clipboardData || window.clipboardData).getData("text") || "";
+          const digitsOnly = pasteText.replace(/[^0-9]/g, "");
+          const start = this.selectionStart || 0;
+          const end = this.selectionEnd || 0;
+          const current = this.value;
+          const updated = (current.slice(0, start) + digitsOnly + current.slice(end)).slice(0, 15);
+          this.value = updated;
+          this.setSelectionRange(start + digitsOnly.length, start + digitsOnly.length);
+        });
+      });
+    }
+
+    // Event Bindings
+    window.addEventListener("DOMContentLoaded", () => {
+      initCart();
+      renderContent();
+      initCategoryTabs();
+      setupNumericPhoneInputs();
+      handleRoute();
+
+      // Mobile Menu Toggle & Overlay
+      const toggle = document.getElementById("bh-mobile-menu-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", toggleMobileMenu);
+      }
+      const mobileOverlay = document.getElementById("bh-mobile-overlay");
+      if (mobileOverlay) {
+        mobileOverlay.addEventListener("click", closeMobileMenu);
+      }
+
+      // Open Cart Button
+      const openCartBtn = document.getElementById("bh-open-cart-btn");
+      if (openCartBtn) {
+        openCartBtn.addEventListener("click", () => {
+          closeMobileMenu();
+          openCart();
+        });
+      }
+
+      // Nav Links category switching
+      document.querySelectorAll('a[href="#menu"], [data-route="menu"]').forEach(link => {
+        link.addEventListener("click", () => {
+          setMenuCategory("all");
+        });
+      });
+
+      document.querySelectorAll('a[href="#deals"], [data-route="deals"]').forEach(link => {
+        link.addEventListener("click", () => {
+          setMenuCategory("Deals");
+        });
+      });
+    });
+
+    window.addEventListener("hashchange", handleRoute);
+  </script>
+</body>
+</html>

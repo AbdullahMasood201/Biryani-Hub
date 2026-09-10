@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Biryani Hub",
+  "description": "Pakistani restaurant and online ordering website for Biryani Hub in Bahria Town, Rawalpindi. Featuring authentic chicken biryani, menu, online cart, and direct WhatsApp ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
